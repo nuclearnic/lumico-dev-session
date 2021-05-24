@@ -1,8 +1,10 @@
+import pdb
 from pathlib import Path
 import cv2
 import dlib
 import numpy as np
 import argparse
+import csv
 from contextlib import contextmanager
 from omegaconf import OmegaConf
 from tensorflow.keras.utils import get_file
@@ -125,7 +127,11 @@ def main():
             for i, d in enumerate(detected):
                 label = "{}, {}".format(int(predicted_ages[i]),
                                         "M" if predicted_genders[i][0] < 0.5 else "F")
+                # pdb.set_trace()
                 # [Lumico] write label to file here
+                with open('face_data_file.csv', mode='w') as face_data_file:
+                        file_writer = csv.writer(face_data_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                        file_writer.writerow([label.split(',')[0], label.split(',')[1]])
                 draw_label(img, (d.left(), d.top()), label)
 
         cv2.imshow("result", img)
