@@ -12,7 +12,7 @@ We're connecting a chatbot with a face classification app. In this session we'll
 ## Required Software
 * Postman: [download link](https://www.postman.com/downloads/)
 * Ngrok: Run `brew install ngrok`
-* Various Python libraries (see specifics instructions for each app)
+* Various Python libraries (see specific instructions for each app)
 
 ## TensorFlow Keras Facial Analysis Application
 ### Set up project
