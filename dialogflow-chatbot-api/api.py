@@ -1,10 +1,18 @@
+import csv
 from flask import Flask, jsonify, request
 app= Flask(__name__)
 
 @app.route("/chatbot_example", methods=["POST"])
 def chatbot():
-    age = 30
-    sex = "Male"
+    with open('../tensorflow-keras-facial-analysis/face_data_file.csv', mode='r') as file:
+        csv_reader = csv.reader(file, delimiter=',')
+        line_count = 0
+        for row in csv_reader:
+            age = row[0]
+            sex = row[1]
+            break
+    # age = 10
+    # sex = 'M'
     return {
         "fulfillmentText": f"It's a {age} year old {sex}."
         }

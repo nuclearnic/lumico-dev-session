@@ -129,8 +129,8 @@ def main():
                                         "M" if predicted_genders[i][0] < 0.5 else "F")
                 # pdb.set_trace()
                 # [Lumico] write label to file here
-                with open('face_data_file.csv', mode='w') as face_data_file:
-                        file_writer = csv.writer(face_data_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                with open('face_data_file.csv', mode='w') as file:
+                        file_writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
                         file_writer.writerow([label.split(',')[0], label.split(',')[1]])
                 draw_label(img, (d.left(), d.top()), label)
 
