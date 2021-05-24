@@ -125,7 +125,7 @@ def main():
             for i, d in enumerate(detected):
                 label = "{}, {}".format(int(predicted_ages[i]),
                                         "M" if predicted_genders[i][0] < 0.5 else "F")
-                # write label to file here
+                # [Lumico] write label to file here
                 draw_label(img, (d.left(), d.top()), label)
 
         cv2.imshow("result", img)
